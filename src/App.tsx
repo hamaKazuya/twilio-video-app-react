@@ -7,7 +7,7 @@ import PreJoinScreens from './components/PreJoinScreens/PreJoinScreens';
 import ReconnectingNotification from './components/ReconnectingNotification/ReconnectingNotification';
 import RecordingNotifications from './components/RecordingNotifications/RecordingNotifications';
 import Room from './components/Room/Room';
-
+import CustomNotification from './components/CustomNotification/CustomNotification';
 import useHeight from './hooks/useHeight/useHeight';
 import useRoomState from './hooks/useRoomState/useRoomState';
 
@@ -41,6 +41,7 @@ export default function App() {
         <PreJoinScreens />
       ) : (
         <Main>
+          <CustomNotification />
           <ReconnectingNotification />
           <RecordingNotifications />
           <MobileTopMenuBar />

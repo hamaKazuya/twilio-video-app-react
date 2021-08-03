@@ -16,18 +16,21 @@ import { ChatProvider } from './components/ChatProvider';
 import { VideoProvider } from './components/VideoProvider';
 import useConnectionOptions from './utils/useConnectionOptions/useConnectionOptions';
 import UnsupportedBrowserWarning from './components/UnsupportedBrowserWarning/UnsupportedBrowserWarning';
+import { CustomProvider } from './components/CustomProvider';
 
 const VideoApp = () => {
   const { error, setError } = useAppState();
   const connectionOptions = useConnectionOptions();
 
   return (
-    <VideoProvider options={connectionOptions} onError={setError}>
-      <ErrorDialog dismissError={() => setError(null)} error={error} />
-      <ChatProvider>
-        <App />
-      </ChatProvider>
-    </VideoProvider>
+    <CustomProvider>
+      <VideoProvider options={connectionOptions} onError={setError}>
+        <ErrorDialog dismissError={() => setError(null)} error={error} />
+        <ChatProvider>
+          <App />
+        </ChatProvider>
+      </VideoProvider>
+    </CustomProvider>
   );
 };
 
